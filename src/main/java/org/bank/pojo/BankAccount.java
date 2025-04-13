@@ -13,6 +13,24 @@ public class BankAccount {
     @ManyToOne
     private Customer customer;
 
+
+
+    public void deposit(double amount){
+        if (amount > 0){
+            this.balance += amount;
+            System.out.println("-Deposit successful! New Balance = " + balance);
+        }else {
+            System.out.println("- Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount){
+        if (amount > 0 && amount <= balance){
+            this.balance -= amount;
+            System.out.println("- Withdrawal successful! New Balance = " + balance);
+        }
+    }
+
     public int getAccountNumber() {
         return accountNumber;
     }
