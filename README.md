@@ -50,5 +50,4 @@ The entry point of the application, where:
 - A deposit and withdrawal operation is performed on the accounts.
 - Transactions are recorded for each operation.
 
-## Steps to Run the Project
 
