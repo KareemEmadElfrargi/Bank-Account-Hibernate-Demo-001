@@ -1,5 +1,6 @@
 package org.bank.pojo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -12,8 +13,8 @@ public class Customer {
     private int id;
     private String name;
     private String email;
-    @OneToMany(mappedBy = "customer")
-    private List<BankAccount> bankAccount;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<BankAccount> bankAccounts;
 
     public int getId() {
         return id;
@@ -39,12 +40,12 @@ public class Customer {
         this.email = email;
     }
 
-    public List<BankAccount> getBankAccount() {
-        return bankAccount;
+    public List<BankAccount> getBankAccounts() {
+        return bankAccounts;
     }
 
-    public void setBankAccount(List<BankAccount> bankAccount) {
-        this.bankAccount = bankAccount;
+    public void setBankAccounts(List<BankAccount> bankAccount) {
+        this.bankAccounts = bankAccount;
     }
 
     @Override
@@ -53,7 +54,7 @@ public class Customer {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", bankAccount=" + bankAccount +
+                ", bankAccount=" + bankAccounts +
                 '}';
     }
 }
